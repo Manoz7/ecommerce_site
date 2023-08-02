@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style>
+        /* Your CSS styles for the invoice template */
+        /* For example, font styles, colors, layout, etc. */
+    </style>
+</head>
+<body>
+    <h1>Invoice</h1>
+    <p>Date: {{ date }}</p>
+    <p>Customer: {{ customer }}</p>
+    <p>Address: {{ address }}</p>
+    
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        {% for cart_product in cart_products %}
+        <tr>
+            <td>{{ cart_product.product.title }}</td>
+            <td>{{ cart_product.quantity }}</td>
+            <td>${{ cart_product.product.price }}</td>
+            <td>${{ cart_product.total_price }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">Shipping Amount</td>
+            <td>${{ shipping_amount }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">Total Amount</td>
+            <td>${{ total_with_shipping }}</td>
+        </tr>
+    </table>
+</body>
+</html>

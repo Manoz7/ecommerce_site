@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="h5 text-uppercase mb-4">Remove Address</h2>
+    <p>Are you sure you want to remove this address?</p>
+    <p>{{ address.locality }}, {{ address.city }}, {{ address.state }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Remove</button>
+        <a href="{% url 'store:profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock content %}
